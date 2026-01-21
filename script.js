@@ -26,6 +26,7 @@ function playRound(humanChoice, computerChoice) {
     console.log(`human choice: ${humanChoice}`)
     console.log(`computer choice: ${computerChoice}`)
     
+    
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore = computerScore + 1;
         return "You lose, paper beats rock";
@@ -88,9 +89,123 @@ function playGame() {
     console.log(`human: ${humanScore} computer: ${computerScore}`)
 }
 
-console.log(playGame())
+
+
+// console.log(playGame())
+const body = document.querySelector("body");
+
+const paper = document.createElement("button")
+paper.setAttribute("id", "paper")
+paper.textContent = "paper"
+const rock = document.createElement("button")
+rock.setAttribute("id", "rock")
+rock.textContent = "rock"
+const scissors = document.createElement("button")
+scissors.setAttribute("id", "scissors")
+scissors.textContent = "scissors"
 
 
 
+body.appendChild(paper)
+body.appendChild(rock)
+body.appendChild(scissors)
+
+const div = document.createElement("div")
+div.textContent = `human score: ${humanScore} computer score: ${computerScore}`
+body.appendChild(div)
+
+const newDiv = document.createElement("div")
+body.appendChild(newDiv)
+
+const paper_play = document.querySelector("#paper")
+paper_play.addEventListener("click", () => playRound("paper", getComputerChoice()))
+
+paper_play.addEventListener("click", function() {
+    newDiv.textContent = ""
+    div.textContent = `human score: ${humanScore} computer score: ${computerScore}`
+})
+
+paper_play.addEventListener("click", function() {
+    if (humanScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Human wins"
+    }
+
+    if (computerScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Computer wins"
+    }
+})
+
+const rock_play = document.querySelector("#rock")
+rock_play.addEventListener("click", () => playRound("rock", getComputerChoice()))
+
+rock_play.addEventListener("click", function() {
+    newDiv.textContent = ""
+    div.textContent = `human score: ${humanScore} computer score: ${computerScore}`
+})
+
+rock_play.addEventListener("click", function() {
+    if (humanScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Human wins"
+    }
+
+    if (computerScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Computer wins"
+    }
+})
+
+const scissors_play = document.querySelector("#scissors")
+scissors_play.addEventListener("click", () => playRound("scissors", getComputerChoice()))
+
+scissors_play.addEventListener("click", function() {
+    newDiv.textContent = ""
+    div.textContent = `human score: ${humanScore} computer score: ${computerScore}`
+})
+
+scissors_play.addEventListener("click", function() {
+    if (humanScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Human wins"
+    }
+
+    if (computerScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        newDiv.textContent = "Computer wins"
+    }
+})
+
+
+
+
+
+
+
+
+
+function checkScore() {
+
+    
+
+    if (humanScore >= 5) {
+        humanScore = 0
+        computerScore = 0
+        return "Human wins"
+    }
+
+    if (computerScore >=5) {
+        humanScore = 0
+        computerScore = 0
+        return "Computer wins"
+    }
+}
 
 
