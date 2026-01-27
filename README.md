@@ -1,1 +1,2 @@
-# Rock-Paper_Scissors-Game
+A game of rock-paper-scissors that could only be played in the console originally but has since been updated to have buttons that play the game.
+Less focus on HTML and CSS styling, as I wanted to focus on improving my Javascript skills instead.
